@@ -181,7 +181,7 @@ function countActiveUsers(users) {
 console.log(`We currently have ${ countActiveUsers(users) } active users.`);
 
 
-function hasBlueEyes(activeUsers) {
+function hasBlueEyes(users) {
     let userBlueEyes = 0;
     
     for(let i = 0; i < users.length; i++)
@@ -197,6 +197,21 @@ function hasBlueEyes(activeUsers) {
     return userBlueEyes ;
 }
 
+function InactivehasBlueEyes(users) {
+    let InactiveUserBlueEyes = 0;
+    
+    for(let i = 0; i < users.length; i++)
+    {   
+        
+    
+        if ((users[i].eyeColor === "blue") && (users[i].isActive === false))
+        {
+            InactiveUserBlueEyes =InactiveUserBlueEyes + 1 ;
+            
+        }
+    }
+    return InactiveUserBlueEyes ;
+}
 console.log(`Out of our currently ${ countActiveUsers(users) } active users, ${ hasBlueEyes(users) } have blue eyes.`);
 
 
@@ -262,14 +277,81 @@ function excludeCenturiaBrownEyedWorkers(users) {
         if ((users[i].eyeColor === "brown") && (users[i].company !== "CENTURIA"))
         {
             CenturiaBrownEyedWorkers.push(users[i]);
-            console.log(CenturiaBrownEyedWorkers.name);
         }
     }
-    console.log(CenturiaBrownEyedWorkers.name);
-        
-    return CenturiaBrownEyedWorkers.name ;
+    return CenturiaBrownEyedWorkers.length;
 }
 
 console.log(`${ excludeCenturiaBrownEyedWorkers(users) } users with brown eyes do not work at CENTURIA`);
+
+function ActivehasBrownEyes(users) {
+    let ActiveuserBrownEyes = 0;
+    
+    for(let i = 0; i < users.length; i++)
+    {   
+        
+    
+        if ((users[i].eyeColor === "brown") && (users[i].isActive === true))
+        {
+            ActiveuserBrownEyes =ActiveuserBrownEyes + 1 ;
+            
+        }
+    }
+    return ActiveuserBrownEyes ;
+}
+
+function InactivehasBrownEyes(users) {
+    let InactiveUserBrownEyes = 0;
+    
+    for(let i = 0; i < users.length; i++)
+    {   
+        
+    
+        if ((users[i].eyeColor === "brown") && (users[i].isActive === false))
+        {
+            InactiveUserBrownEyes =InactiveUserBrownEyes + 1 ;
+            
+        }
+    }
+    return InactiveUserBrownEyes ;
+}
+
+function ActivehasgreenEyes(users) {
+    let ActiveusergreenEyes = 0;
+    
+    for(let i = 0; i < users.length; i++)
+    {   
+        
+    
+        if ((users[i].eyeColor === "green") && (users[i].isActive === true))
+        {
+            ActiveusergreenEyes =ActiveusergreenEyes + 1 ;
+            
+        }
+    }
+    return ActiveusergreenEyes ;
+}
+
+function InactivehasgreenEyes(users) {
+    let InactiveUsergreenEyes = 0;
+    
+    for(let i = 0; i < users.length; i++)
+    {   
+        
+    
+        if ((users[i].eyeColor === "brown") && (users[i].isActive === false))
+        {
+            InactiveUsergreenEyes =InactiveUsergreenEyes + 1 ;
+            
+        }
+    }
+    return InactiveUsergreenEyes ;
+}
+
+console.log(`Out of our brown eyed users ${ ActivehasBrownEyes(users) } are active and ${ InactivehasBrownEyes(users) } are inactive`);
+
+console.log(`Out of our green eyed users ${ ActivehasgreenEyes(users) } are active and ${ InactivehasgreenEyes(users) } are inactive`);
+
+console.log(`Out of our blue eyed users ${ hasBlueEyes(users) } are active and ${ InactivehasBlueEyes(users) } are inactive`);
 
 console.log(users)
