@@ -201,15 +201,75 @@ console.log(`Out of our currently ${ countActiveUsers(users) } active users, ${ 
 
 
 
-function computeActiveUsersAverageAge(ages) {
+function computeActiveUsersAverageAge(users) {
     
-    let userAge = 1;
+    let userAge = 0;
+    let average ;
+    let userActive = [];
     
-    for (age of countActiveUsers(users)) 
-    {
-        userAge = (userAge + age);
+    for(let i = 0; i < users.length; i++)
+    {   
+        
+    
+        if (users[i].isActive === true)
+        {
+            userActive.push(users[i]); 
+        }
     }
-    return userAge ;
+    
+    for (let i = 0; i < userActive.length; i++) 
+    {
+        userAge = userAge + userActive[i].age;
+        average = (userAge / userActive.length);
+    }
+    
+    return average ;
 }
 
-console.log(`Out of our currently ${ countActiveUsers(users) } active users, the average age is ${ computeActiveUsersAverageAge(ages) }.`);
+console.log(`Out of our currently ${ countActiveUsers(users) } active users, the average age is ${ computeActiveUsersAverageAge(users) }.`);
+
+function getMultronUsers(users) {
+    
+    let MultronUsers = [];
+    
+    for(let i = 0; i < users.length; i++)
+    {   
+        
+    
+        if (users[i].company === "MULTRON")
+        {
+            MultronUsers.push(users[i]);
+            
+        }
+    }
+        for (let i = 0; i < MultronUsers.length; i++) 
+    {   
+        MultronUsers[i].company = "CENTURIA";
+    }
+    return MultronUsers.length ;
+}
+
+
+console.log(`${ getMultronUsers(users) } user companies have been changed from MULTRON to CENTURIA.`);
+
+
+
+function excludeCenturiaBrownEyedWorkers(users) {
+    let CenturiaBrownEyedWorkers = [];
+    
+    for(let i = 0; i < users.length; i++)
+    {
+        if ((users[i].eyeColor === "brown") && (users[i].company !== "CENTURIA"))
+        {
+            CenturiaBrownEyedWorkers.push(users[i]);
+            console.log(CenturiaBrownEyedWorkers.name);
+        }
+    }
+    console.log(CenturiaBrownEyedWorkers.name);
+        
+    return CenturiaBrownEyedWorkers.name ;
+}
+
+console.log(`${ excludeCenturiaBrownEyedWorkers(users) } users with brown eyes do not work at CENTURIA`);
+
+console.log(users)
